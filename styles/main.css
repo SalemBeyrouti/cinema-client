@@ -17,13 +17,14 @@ section {
 .login-box {
     position: relative;
     width: 400px;
-    height: 450px;
+    padding: 30px 20px;
     background: transparent;
     border: 2px solid white;
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
 }
 
