@@ -414,3 +414,6 @@ padding: 8px 16px;
     background-color: black;
   }
 }
+*::before, *::after {
+  box-sizing: border-box;
+}

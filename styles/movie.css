@@ -19,7 +19,7 @@ header {
 
 header h1 {
   font-size: 1.5rem;
-  color: #00d8ff;
+  color: green;
 }
 
 nav a {
@@ -97,7 +97,7 @@ main {
 }
 
 .showtime-buttons button:hover {
-  background-color: #00d8ff;
+  background-color: rgb(46, 46, 153);
   color: #000;
 }
 
@@ -107,7 +107,7 @@ main {
 }
 
 .btn-primary {
-  background-color: #00d8ff;
+  background-color: red;
   color: #000;
   padding: 1rem 2rem;
   border-radius: 8px;

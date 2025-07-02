@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.seat-booking-container {
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.screen {
+  background: #444;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+
+.seat-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: #999;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.seat.selected {
+  background-color: #4dbf00;
+}
+
+.seat.booked {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+.summary {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.price-value,
+.total-value {
+  font-weight: bold;
+  color: #4dbf00;
+}
+
+.confirm-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4dbf00;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
