@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  
-
   const form = document.querySelector(".login-form");
 
   if (!form) {
@@ -10,44 +8,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    
 
     const identifier = form.querySelector(".input-email-phone").value.trim();
     const password = form.querySelector(".input-password").value.trim();
 
+    const payload = {
+      email: identifier,
+      password: password,
+    };
+
     try {
       const response = await axios.post(
         "http://localhost/cinema-server/controllers/login.php",
-        {
-          email: identifier,
-          password: password,
-        },
+        payload,
         {
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
+            "Content-Type": "application/json", // ✅ MAKE SURE THIS LINE EXISTS
           },
-          transformRequest: [(data) => {
-            const params = new URLSearchParams();
-            for (let key in data) {
-              params.append(key, data[key]);
-            }
-            return params.toString();
-          }],
         }
       );
 
       const result = response.data;
       console.log("Response received:", result);
 
-      if (result.status === "success") {
-        alert("Login successful!");
+      if (result.status === 200 || result.status === "success") {
+        localStorage.setItem("user", JSON.stringify(result.data));
+        window.location.href = "homepage.html";
       } else {
-        alert("Error: " + result.data);
+        alert("Login failed: " + (result.message ?? "Unknown error"));
       }
 
     } catch (error) {
       console.error("Axios error:", error);
-      alert("Something went wrong.");
+
+      if (error.response) {
+        console.log("Server responded:", error.response.data);
+        alert("Server error: " + (error.response.data?.message ?? "Unknown"));
+      } else if (error.request) {
+        alert("No response received from server.");
+      } else {
+        alert("JS Error: " + error.message);
+      }
     }
   });
 });
