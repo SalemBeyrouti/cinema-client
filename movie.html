@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Details | Smart Cinema</title>
+  <link rel="stylesheet" href="styles/movie.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Smart Cinema</h1>
+    <nav>
+      <a href="homepage.html">Home</a>
+      <a href="login.html">Login</a>
+      <a href="register.html">Register</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="movie-info">
+      <img src="assets/posters/inception.jpg" alt="Inception Poster" />
+      <div class="details">
+        <h1>Inception</h1>
+        <p><strong>Genre:</strong> Sci-Fi, Thriller</p>
+        <p><strong>Duration:</strong> 2h 28m</p>
+        <p><strong>Cast:</strong> Leonardo DiCaprio, Ellen Page</p>
+        <p><strong>Rating:</strong> 8.8/10</p>
+        <p class="synopsis">A thief who steals corporate secrets through dream-sharing technology is given the chance to have his past crimes forgiven.</p>
+      </div>
+    </section>
+
+    <section class="showtimes">
+      <h2>Select Showtime</h2>
+      <div class="showtime-buttons">
+        <button data-showtime-id="101">Today - 6:00 PM</button>
+        <button data-showtime-id="102">Tomorrow - 3:30 PM</button>
+        <button data-showtime-id="103">Friday - 9:00 PM</button>
+      </div>
+    </section>
+
+    <section class="book-button">
+      <a href="#" class="btn-primary" id="book-now">Book Seats</a>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+  <script src="scripts/movies.js"></script>
+
+</body>
+</html>
