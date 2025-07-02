@@ -69,7 +69,7 @@ document.addEventListener("click", (e) => {
   if (btn.classList.contains("movie-list-item-button")) {
     const movieId = btn.dataset.id;
     if (movieId) {
-      window.location.href = `booking.html?movie_id=${movieId}`;
+      window.location.href = `movie.html?movie_id=${movieId}`;
     } else {
       alert("This movie is statically listed. Link to booking coming soon!");
     }
@@ -106,3 +106,39 @@ arrows.forEach((arrow, i) => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const movieLists = document.querySelectorAll(".movie-list");
+
+  axios
+    .get("../cinema-server/controllers/get_movies.php")
+    .then((response) => {
+      const movies = response.data.data;
+
+      movieLists.forEach((container) => {
+        const category = container.dataset.category;
+
+        const filtered = movies.filter((movie) => {
+          return movie.category === category && movie.is_active === 1;
+        });
+
+        filtered.forEach((movie) => {
+          const card = document.createElement("div");
+          card.classList.add("movie-card");
+
+          card.innerHTML = `
+            <a href="./movie.html?movie_id=${movie.id}">
+              <img src="${movie.poster_url}" alt="${movie.title}" />
+              <h3>${movie.title}</h3>
+            </a>
+          `;
+
+          container.appendChild(card);
+        });
+      });
+    })
+    .catch((error) => {
+      console.error("Failed to fetch movies:", error);
+    });
+});
+
