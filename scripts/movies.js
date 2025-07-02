@@ -12,7 +12,7 @@ let selectedShowtimeId = null;
 axios.get(`../cinema-server/controllers/get_movies.php?id=${movieId}`)
   .then(res => {
     const movie = res.data.data;
-    console.log("Movie:", movie);
+    
     movieInfoContainer.innerHTML = `
       <img src="${movie.poster_url}" alt="${movie.title} Poster" />
       <div class="details">
@@ -48,7 +48,7 @@ axios.get('../cinema-server/controllers/get_showtimes.php')
 
       btn.addEventListener('click', () => {
         selectedShowtimeId = st.id;
-        bookNowBtn.href = `booking.html?movie_id=${movieId}&showtime_id=${selectedShowtimeId}`;
+        bookNowBtn.href = `seats.html?movie_id=${movieId}&showtime_id=${selectedShowtimeId}`;
         [...showtimesContainer.children].forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
       });

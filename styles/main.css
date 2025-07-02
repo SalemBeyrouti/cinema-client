@@ -128,6 +128,46 @@ button {
     text-decoration: underline;
 }
 
+@media (max-width: 760px){
+
+    .sidebar {
+    width: 45px;
+    padding: 5px 0;
+    align-items: center;
+  }
+
+  .left-menu-icon {
+    font-size: 16px;
+    margin: 15px 0;
+  }
+
+  .container {
+    margin-left: 45px;
+  }
+
+  .content-container {
+    padding: 0 10px;
+  }
+
+   .movie-list-container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+  }
+
+  .movie-list-title {
+    width: 130px;
+    font-size: 16px;
+    margin: 0 6px;
+  }
+
+
+  .movie-list-item-img {
+    width: 100%;
+    height: auto;
+  }
+
+}
 
 @media (max-width: 360px) {
     .login-box {
@@ -140,4 +180,9 @@ button {
     .input-box {
         width: 290px;
     }
+
+    .sidebar{
+        width: 50px;
+    }
 }
+
